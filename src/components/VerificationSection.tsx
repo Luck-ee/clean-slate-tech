@@ -251,7 +251,7 @@ const VerificationSection = () => {
               <p className="text-sm text-muted-foreground mb-4">
                 Download a sample certificate to test the verification process
               </p>
-              <Button variant="outline" className="btn-secondary">
+              <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
                 <Download className="h-4 w-4 mr-2" />
                 Download Sample Certificate
               </Button>

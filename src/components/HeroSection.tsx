@@ -1,35 +1,38 @@
-import { Shield, Download, Lock, CheckCircle } from 'lucide-react';
+import { Shield, Download, Lock, CheckCircle, Monitor, Smartphone, HardDrive, Disc } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useState } from 'react';
 
 const HeroSection = () => {
+  const [selectedPlatform, setSelectedPlatform] = useState('Windows');
+
   const downloadOptions = [
     { 
       platform: 'Windows', 
-      icon: '🪟', 
+      icon: Monitor, 
       file: 'SecureWipe-Windows.exe',
       description: 'Desktop application for Windows 10/11'
     },
     { 
       platform: 'macOS', 
-      icon: '🍎', 
+      icon: Monitor, 
       file: 'SecureWipe-macOS.dmg',
       description: 'Desktop application for macOS 10.15+'
     },
     { 
       platform: 'Linux', 
-      icon: '🐧', 
+      icon: Monitor, 
       file: 'SecureWipe-Linux.AppImage',
       description: 'Desktop application for Linux distributions'
     },
     { 
       platform: 'Android', 
-      icon: '🤖', 
+      icon: Smartphone, 
       file: 'SecureWipe-Android.apk',
       description: 'Mobile application for Android devices'
     },
     { 
       platform: 'Bootable ISO', 
-      icon: '💿', 
+      icon: Disc, 
       file: 'SecureWipe-Live.iso',
       description: 'Bootable USB/DVD for offline wiping'
     },
@@ -40,6 +43,8 @@ const HeroSection = () => {
     { icon: CheckCircle, text: 'Tamper-proof certificates' },
     { icon: Shield, text: 'Cross-platform compatibility' },
   ];
+
+  const selectedOption = downloadOptions.find(option => option.platform === selectedPlatform) || downloadOptions[0];
 
   return (
     <section id="hero" className="section-padding pt-32 bg-background">
@@ -73,35 +78,66 @@ const HeroSection = () => {
         </div>
 
         {/* Download Section */}
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl font-bold text-center text-foreground mb-8">
             Download for Your Platform
           </h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {downloadOptions.map((option, index) => (
-              <div key={index} className="feature-card group">
-                <div className="text-center">
-                  <div className="text-4xl mb-4">{option.icon}</div>
-                  <h3 className="text-lg font-semibold text-foreground mb-2">
-                    {option.platform}
-                  </h3>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    {option.description}
-                  </p>
-                  <Button className="btn-hero w-full group-hover:scale-105">
-                    <Download className="h-4 w-4 mr-2" />
-                    Download
-                  </Button>
-                </div>
+          <div className="feature-card">
+            {/* Platform Selection */}
+            <div className="mb-6">
+              <h3 className="text-lg font-semibold text-foreground mb-4 text-center">
+                Select Your Platform
+              </h3>
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+                {downloadOptions.map((option) => (
+                  <button
+                    key={option.platform}
+                    onClick={() => setSelectedPlatform(option.platform)}
+                    className={`p-4 rounded-lg border-2 transition-all duration-300 flex flex-col items-center space-y-2 ${
+                      selectedPlatform === option.platform
+                        ? 'border-primary bg-primary/5'
+                        : 'border-border hover:border-primary/50'
+                    }`}
+                  >
+                    <option.icon className={`h-6 w-6 ${
+                      selectedPlatform === option.platform ? 'text-primary' : 'text-muted-foreground'
+                    }`} />
+                    <span className={`text-sm font-medium ${
+                      selectedPlatform === option.platform ? 'text-primary' : 'text-muted-foreground'
+                    }`}>
+                      {option.platform}
+                    </span>
+                  </button>
+                ))}
               </div>
-            ))}
+            </div>
+
+            {/* Selected Platform Download */}
+            <div className="text-center border-t border-border pt-6">
+              <div className="bg-primary/5 p-6 rounded-lg mb-6">
+                <selectedOption.icon className="h-12 w-12 text-primary mx-auto mb-4" />
+                <h4 className="text-xl font-semibold text-foreground mb-2">
+                  {selectedOption.platform}
+                </h4>
+                <p className="text-muted-foreground mb-4">
+                  {selectedOption.description}
+                </p>
+                <p className="text-sm text-muted-foreground mb-4">
+                  File: <span className="font-mono text-foreground">{selectedOption.file}</span>
+                </p>
+              </div>
+              
+              <Button size="lg" className="btn-hero">
+                <Download className="h-5 w-5 mr-2" />
+                Download {selectedOption.platform} Version
+              </Button>
+            </div>
           </div>
 
-          <div className="text-center mt-12">
-            <p className="text-sm text-muted-foreground">
+          <div className="text-center mt-8">
+            <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
               All downloads are free and include comprehensive documentation. 
-              <br />
               Digital signatures verify authenticity of all software packages.
             </p>
           </div>

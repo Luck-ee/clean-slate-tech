@@ -17,10 +17,10 @@
     --popover: 0 0% 100%;
     --popover-foreground: 224 22% 12%;
 
-    /* Primary Blue - Security & Trust */
-    --primary: 214 84% 56%;
+    /* Primary - Subtle Blue for key actions */
+    --primary: 215 20% 35%;
     --primary-foreground: 0 0% 100%;
-    --primary-dark: 214 84% 46%;
+    --primary-dark: 215 25% 25%;
 
     /* Secondary Dark - Professional */
     --secondary: 224 22% 12%;
@@ -31,8 +31,8 @@
     --muted: 224 12% 95%;
     --muted-foreground: 224 10% 55%;
 
-    --accent: 214 84% 96%;
-    --accent-foreground: 214 84% 36%;
+    --accent: 224 12% 92%;
+    --accent-foreground: 224 22% 12%;
 
     /* Status Colors */
     --success: 142 71% 45%;
@@ -104,7 +104,7 @@
 
   /* Card Styles */
   .feature-card {
-    @apply bg-card border border-border rounded-xl p-8 shadow-sm hover:shadow-md transition-all duration-300;
+    @apply bg-card border border-border rounded-xl p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-300;
   }
 
   /* Section Styles */
@@ -113,7 +113,18 @@
   }
   
   .section-padding {
-    @apply py-16 lg:py-24;
+    @apply py-12 md:py-16 lg:py-24;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 640px) {
+    .feature-card {
+      @apply p-4;
+    }
+    
+    .section-padding {
+      @apply py-8;
+    }
   }
 
   /* Upload Zone */

@@ -35,40 +35,24 @@ const DemoSection = () => {
           </p>
         </div>
 
-        {/* Demo Video Placeholder */}
+        {/* Demo Video */}
         <div className="max-w-4xl mx-auto mb-16">
           <div className="relative bg-secondary rounded-xl overflow-hidden shadow-2xl">
-            <div className="aspect-video bg-secondary/50 flex items-center justify-center">
-              <div className="text-center">
-                <div className="bg-primary/20 p-6 rounded-full mb-4 inline-block">
-                  <Play className="h-12 w-12 text-primary" />
-                </div>
-                <h3 className="text-xl font-semibold text-secondary-foreground mb-2">
-                  Demo Video Coming Soon
-                </h3>
-                <p className="text-secondary-foreground/70">
-                  Complete walkthrough of the secure wiping process
-                </p>
-              </div>
-            </div>
-            
-            {/* Video Controls Placeholder */}
-            <div className="bg-secondary/80 p-4 flex items-center justify-between">
-              <div className="flex items-center space-x-4">
-                <button className="bg-primary text-primary-foreground p-2 rounded-full hover:bg-primary-dark transition-colors">
-                  <Play className="h-4 w-4" />
-                </button>
-                <span className="text-secondary-foreground text-sm">0:00 / 5:24</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <span className="text-secondary-foreground text-sm">Quality:</span>
-                <select className="bg-secondary-light text-secondary-foreground text-sm rounded px-2 py-1">
-                  <option>1080p</option>
-                  <option>720p</option>
-                  <option>480p</option>
-                </select>
-              </div>
-            </div>
+            <video 
+              className="w-full aspect-video"
+              controls
+              preload="metadata"
+              poster="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ1MCIgdmlld0JveD0iMCAwIDgwMCA0NTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iNDUwIiBmaWxsPSIjMUExQTFBIi8+CjxjaXJjbGUgY3g9IjQwMCIgY3k9IjIyNSIgcj0iNDAiIGZpbGw9IiM0QTkwRTIiLz4KPHBhdGggZD0iTTM4NSAyMDVMMzg1IDI0NUw0MTUgMjI1TDM4NSAyMDVaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K"
+            >
+              <source src="/demo-video.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          
+          <div className="text-center mt-6">
+            <p className="text-sm text-muted-foreground">
+              Watch a complete walkthrough of the secure data wiping process
+            </p>
           </div>
         </div>
 
