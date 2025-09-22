@@ -9,7 +9,7 @@ const Footer = () => {
           <div className="md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
               <Shield className="h-8 w-8 text-primary" />
-              <span className="text-xl font-bold">VeriWipe</span>
+              <span className="text-xl font-bold">SecureWipe</span>
             </div>
             <p className="text-secondary-foreground/80 mb-4 max-w-md">
               Professional-grade data wiping solution with tamper-proof certificates. 
@@ -17,13 +17,13 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <a 
-                href="mailto:contact@veriwipe.com" 
+                href="mailto:contact@securewipe.com" 
                 className="text-secondary-foreground/80 hover:text-primary transition-colors"
               >
                 <Mail className="h-5 w-5" />
               </a>
               <a 
-                href="https://github.com/veriwipe" 
+                href="https://github.com/securewipe" 
                 className="text-secondary-foreground/80 hover:text-primary transition-colors"
               >
                 <Github className="h-5 w-5" />
@@ -84,7 +84,7 @@ const Footer = () => {
 
         <div className="border-t border-secondary-light mt-8 pt-8 text-center">
           <p className="text-secondary-foreground/60 text-sm">
-            © 2024 VeriWipe. All rights reserved. NIST 800-88 compliant data sanitization.
+            © 2024 SecureWipe. All rights reserved. NIST 800-88 compliant data sanitization.
           </p>
         </div>
       </div>
