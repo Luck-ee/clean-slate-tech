@@ -2,36 +2,25 @@ import { useState, useCallback } from 'react';
 import { Upload, FileText, CheckCircle, AlertCircle, Shield, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-interface VerificationStatus {
-  status: 'idle' | 'uploading' | 'verifying' | 'success' | 'error';
-  message: string;
-  details?: {
-    deviceId?: string;
-    wipeMethod?: string;
-    timestamp?: string;
-    signature?: string;
-  };
-}
-
 const VerificationSection = () => {
-  const [verificationStatus, setVerificationStatus] = useState<VerificationStatus>({
+  const [verificationStatus, setVerificationStatus] = useState({
     status: 'idle',
     message: 'Upload a certificate to verify its authenticity'
   });
 
   const [dragOver, setDragOver] = useState(false);
 
-  const handleDragOver = useCallback((e: React.DragEvent) => {
+  const handleDragOver = useCallback((e) => {
     e.preventDefault();
     setDragOver(true);
   }, []);
 
-  const handleDragLeave = useCallback((e: React.DragEvent) => {
+  const handleDragLeave = useCallback((e) => {
     e.preventDefault();
     setDragOver(false);
   }, []);
 
-  const handleDrop = useCallback((e: React.DragEvent) => {
+  const handleDrop = useCallback((e) => {
     e.preventDefault();
     setDragOver(false);
     
@@ -41,7 +30,7 @@ const VerificationSection = () => {
     }
   }, []);
 
-  const handleFileUpload = (file: File) => {
+  const handleFileUpload = (file) => {
     if (!file.name.toLowerCase().endsWith('.pdf')) {
       setVerificationStatus({
         status: 'error',
@@ -78,7 +67,7 @@ const VerificationSection = () => {
     }, 1000);
   };
 
-  const handleFileInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileInputChange = (e) => {
     const file = e.target.files?.[0];
     if (file) {
       handleFileUpload(file);
