@@ -26,7 +26,7 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
+  const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -50,7 +50,7 @@ const Navbar = () => {
             onClick={() => scrollToSection('hero')}
           >
             <Shield className="h-8 w-8 text-primary" />
-            <span className="text-xl font-bold text-foreground">SecureWipe</span>
+            <span className="text-xl font-bold text-foreground">VeriWipe</span>
           </div>
 
           {/* Desktop Navigation */}

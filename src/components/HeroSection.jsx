@@ -9,31 +9,31 @@ const HeroSection = () => {
     { 
       platform: 'Windows', 
       icon: Monitor, 
-      file: 'SecureWipe-Windows.exe',
+      file: 'VeriWipe-Windows.exe',
       description: 'Desktop application for Windows 10/11'
     },
     { 
       platform: 'macOS', 
       icon: Monitor, 
-      file: 'SecureWipe-macOS.dmg',
+      file: 'VeriWipe-macOS.dmg',
       description: 'Desktop application for macOS 10.15+'
     },
     { 
       platform: 'Linux', 
       icon: Monitor, 
-      file: 'SecureWipe-Linux.AppImage',
+      file: 'VeriWipe-Linux.AppImage',
       description: 'Desktop application for Linux distributions'
     },
     { 
       platform: 'Android', 
       icon: Smartphone, 
-      file: 'SecureWipe-Android.apk',
+      file: 'VeriWipe-Android.apk',
       description: 'Mobile application for Android devices'
     },
     { 
       platform: 'Bootable ISO', 
       icon: Disc, 
-      file: 'SecureWipe-Live.iso',
+      file: 'VeriWipe-Live.iso',
       description: 'Bootable USB/DVD for offline wiping'
     },
   ];
@@ -57,8 +57,8 @@ const HeroSection = () => {
           </div>
           
           <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-            Secure Data Wiping
-            <span className="block text-primary">Made Simple</span>
+            VeriWipe
+            <span className="block text-primary">Secure Data Wiping Made Simple</span>
           </h1>
           
           <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
